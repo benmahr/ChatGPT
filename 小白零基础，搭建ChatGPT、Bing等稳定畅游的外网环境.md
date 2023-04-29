@@ -1,6 +1,7 @@
 # 小白零基础，搭建ChatGPT、Bing等稳定畅游的外网环境
 
 
+ChatGPT注册参考：[小白零基础，注册ChatGPT，充值 Plus使用GPT 4（完整教程）](https://zhuanlan.zhihu.com/p/625800667)
 
 ## **1  V2Ray简介**
 
