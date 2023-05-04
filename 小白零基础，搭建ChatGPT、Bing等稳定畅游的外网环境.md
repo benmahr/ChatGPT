@@ -136,61 +136,109 @@ Xshell 下载地址：https://pan.baidu.com/s/1v7RCM0IjZGn_q5aWS1WXWg，提取�
 
 ## 4  VPS一键脚本搭建V2Ray
 
-在上图的待输入内容处，粘贴下面的命令（复制下面的命令，然后在 Xshell 待输入内容处“鼠标右键”/“粘贴”即可）：
+连接成功后，会出现如上图所示，之后就可以复制粘贴代码部署了。
 
-在上图的待输入内容处，粘贴下面的命令（复制下面的命令，然后在 Xshell 待输入内容处“鼠标右键”/“粘贴”即可）：
+**Ubuntu 16+ / Debian 8+ 系统 v2ray一键部署管理脚本**：
 
-```
-bash <(curl -s -L https://git.io/v2ray.sh)
-```
+安装命令：
 
-> 如果提示 curl: command not found ，那是因为你的 VPS 没装 Curl ubuntu/debian 系统安装 Curl 方法: `apt-get update -y && apt-get install curl -y` centos 系统安装 Curl 方法: `yum update -y && yum install curl -y` 安装好 curl 之后就能安装脚本了
+source <(curl -sL https://multi.netlify.app/v2ray.sh) --zh
 
-然后选择安装，即是输入 1 回车
+升级命令(保留配置文件更新)：
 
-选择传输协议，如果没有特别的需求，使用默认的 TCP 传输协议即可，直接回车
+source <(curl -sL https://multi.netlify.app/v2ray.sh) -k
 
-选择端口，如果没有特别的需求，使用默认的端口即可，直接回车
+卸载命令：
 
-是否屏蔽广告，除非你真的需要，一般来说，直接回车即可
+source <(curl -sL https://multi.netlify.app/v2ray.sh) --remove
 
-![](C:\Users\hn\Desktop\微信图片_20230429144149.png)
+> 如果输入安装命令后提示curl: command not found，那是因为服务器系统没有自带curl命令，安装一下curl。
 
-是否配置 Shadowsocks ，如果不需要就直接回车，否则就输入 Y 回车
+> CentOS系统安装curl命令：yum install -y curl
 
-Shadowsocks 端口，密码，加密方式这些东西自己看情况配置即可，我个人当然是全部直接回车
+> Debian/Ubuntu系统安装curl命令：apt-get install -y curl
 
-OK，按回车继续
+> 安装完成后，输入v2ray可进入管理页面。脚本来自[Jrohy/multi-v2ray](https://github.com/Jrohy/multi-v2ray)。
 
-![](C:\Users\hn\Desktop\微信图片_20230429144309.png)
+------
 
-安装信息，如果确保没有什么问题了，按回车继续
+**脚本演示**
 
-![](C:\Users\hn\Desktop\微信图片_20230429144355.png)
+复制上面安装命令代码到VPS服务器里，复制代码用鼠标右键的复制，然后在vps里面右键粘贴进去，因为ctrl+c和ctrl+v无效。接着输入数字1来安装。安装完成后，如果想修改、查看配置等，可以输入v2ray进行管理页面，不用重复安装脚本。
 
-OK，出现这个界面就表示 V2Ray 已经安装完成了。
+[![img](https://camo.githubusercontent.com/a0a03ac24ef5ebc478694017dd88531841ef7ae99710f724103ef5989b0eeaaa/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f5041432f76327261792f76327261792d322d312e504e47)](https://camo.githubusercontent.com/a0a03ac24ef5ebc478694017dd88531841ef7ae99710f724103ef5989b0eeaaa/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f5041432f76327261792f76327261792d322d312e504e47)
 
-![](C:\Users\hn\Desktop\微信图片_20230429144446.png)
+[![img](https://camo.githubusercontent.com/eb385c35ed77dfa7e692f5b755ea2868ea2d9e236e3530ce28f006614a4a51f8/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f5041432f76327261792f76327261792d322d322e504e47)](https://camo.githubusercontent.com/eb385c35ed77dfa7e692f5b755ea2868ea2d9e236e3530ce28f006614a4a51f8/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f5041432f76327261792f76327261792d322d322e504e47)
 
-如上图所示，V2Ray 配置信息，Shadowsocks 配置信息都有了
+安装速度很快，安装结束后默认有个kcp协议帐号，如果不想用kcp协议，可以输入v2ray管理页面来进行传输方式的更改。（推荐websocket协议）
 
-如果你使用过 Shadowsocks ，那么现在你可以测试一下 Shadowsocks 配置了，看看是否能正常使用。
+[![img](https://camo.githubusercontent.com/5ce90463624dc1abfd98f6facfcb266828a41fb87cc6b7fa6c5ad4bb98b43639/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f5041432f76327261792f76327261792d322d332e504e47)](https://camo.githubusercontent.com/5ce90463624dc1abfd98f6facfcb266828a41fb87cc6b7fa6c5ad4bb98b43639/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f5041432f76327261792f76327261792d322d332e504e47)
 
-如果你使用过 V2Ray 某些客户端，那么现在也可以测试一下配置了。
+[![img](https://camo.githubusercontent.com/3781abd3c7663b7acabba2ab90098c8e08b837b19760d9554f7648e775ae152a/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f5041432f76327261792f76327261792d322d342e504e47)](https://camo.githubusercontent.com/3781abd3c7663b7acabba2ab90098c8e08b837b19760d9554f7648e775ae152a/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f5041432f76327261792f76327261792d322d342e504e47)
 
-(备注，可能某些 V2Ray 客户端的选项或描述略有不同，但事实上，上面的 V2Ray 配置信息已经足够详细，由于客户端的不同，请对号入座。)
+[![img](https://camo.githubusercontent.com/2f9f2917b069a8d36c75a5e76e7373410c012d1f058cfa890aa85497b942075d/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f736f6674696d61672f76327261792d63732e706e67)](https://camo.githubusercontent.com/2f9f2917b069a8d36c75a5e76e7373410c012d1f058cfa890aa85497b942075d/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f736f6674696d61672f76327261792d63732e706e67)
+
+**注意：如果安装后提示“Failed to start V2Ray Service”，即v2ray无法启动成功，输入以下3条命令**：
+
+> sed -i "s/v2ray -config/v2ray run -config/g" /etc/systemd/system/v2ray.service.d/10-donot_touch_single_conf.conf
+
+> systemctl daemon-reload
+
+> systemctl restart v2ray
+
+如果以上命令还是无法启动，将服务器的v2ray版本退回到指定版本，输入命令：
+
+> v2ray update v4.45.2
+
+> 之后再重启下v2ray就可以了: 输入命令v2ray--数字1服务管理--数字3重启服务
+
+
+
+
 
 ### 优化 V2Ray
 
-由于本人的脚本在 Debian9 系统会自动开启 BBR 优化加速了，所以不需要再安装 BBR 优化了，如果你是使用其他商家的 VPS 并且是按照此教程流程来安装 V2Ray 的话，那么你可以输入
+五合一的TCP网络加速脚本，包括了BBR原版、BBR魔改版、暴力BBR魔改版、BBR plus（首选）、Lotsever(锐速)安装脚本。可用于KVMXen架构，不兼容OpenVZ（OVZ）。支持Centos 6+ / Debian 7+ / Ubuntu 14+，BBR魔改版不支持Debian 8。
 
-```
-v2ray bbr
-```
+------
 
-回车，然后选择安装 BBR 或者 锐速 来优化 V2Ray
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"
 
-只是还想再啰嗦一下，如果你是使用国际大厂的 VPS，并且是按照此教程流程来安装 V2Ray 的话，请自行在安全组 (防火墙) 开放端口和 UDP 协议 (如果你要使用含有 mKCP 的传输协议)
+chmod +x tcp.sh
+
+./tcp.sh
+
+------
+
+> 如果提示 wget: command not found 的错误，这是你的系统精简的太干净了，wget都没有安装，所以需要安装wget。CentOS系统安装wget命令： yum install -y wget Debian/Ubuntu系统安装wget命令：apt-get install -y wget
+
+安装完成后，脚本管理命令为：./tcp.sh
+
+[![img](https://camo.githubusercontent.com/43d455bfc441847cd05d216041bc06878ae6ec8fe6053105d1f6841ab00a767f/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272312e6a7067)](https://camo.githubusercontent.com/43d455bfc441847cd05d216041bc06878ae6ec8fe6053105d1f6841ab00a767f/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272312e6a7067)
+
+操作方法：先安装内核，重启vps让内核生效，再启动对应的加速即可。数字1的BBR/BBR魔改内核对应数字4、5、6的BBR加速、BBR魔改加速和暴力BBR魔改版加速。数字2的BBRplus内核对应数字7的BBRplus加速。数字3的锐速加速内核对应数字8的锐速加速。
+
+以安装暴力BBR魔改版加速为例，我们先安装对应的内核，输入数字1
+
+[![img](https://camo.githubusercontent.com/9cdf5aca624bea0c8e7f4febad3dfb50856004ee0a4bf516a1da9fefe01db5e1/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272322e6a7067)](https://camo.githubusercontent.com/9cdf5aca624bea0c8e7f4febad3dfb50856004ee0a4bf516a1da9fefe01db5e1/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272322e6a7067)
+
+内核安装完成后，输入y进行重启，重启才能让内核生效
+
+[![img](https://camo.githubusercontent.com/640a029001c8574b912dfd7628af064bf11b20a8d9ad3850c7885baa728f468e/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272332e6a7067)](https://camo.githubusercontent.com/640a029001c8574b912dfd7628af064bf11b20a8d9ad3850c7885baa728f468e/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272332e6a7067)
+
+重启完成后，输入数字6来启动暴力BBR魔改版加速
+
+[![img](https://camo.githubusercontent.com/10ce2b1df7a5d83940836cc4211765eedc2f971a3afeb7ee54f9e05bb34f9395/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272342e6a7067)](https://camo.githubusercontent.com/10ce2b1df7a5d83940836cc4211765eedc2f971a3afeb7ee54f9e05bb34f9395/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272342e6a7067)
+
+[![img](https://camo.githubusercontent.com/b73fea955aaf98f08162d9a8872d1c79fbce2aef852c084745a84771d305240b/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272352e6a7067)](https://camo.githubusercontent.com/b73fea955aaf98f08162d9a8872d1c79fbce2aef852c084745a84771d305240b/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272352e6a7067)
+
+输入./tcp.sh查看最终是否启动成功。
+
+如果想换一个加速，输入数字9进行卸载加速，然后进行同样的操作，安装内核再安装对应内核的加速即可。
+
+**注意：如果在安装内核环节出现这样一张图，注意选择NO**
+
+[![img](https://camo.githubusercontent.com/4d9ba113a7a4c183432be250722657af50b009924206005ab97a2be14e5ba36f/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272362e6a7067)](https://camo.githubusercontent.com/4d9ba113a7a4c183432be250722657af50b009924206005ab97a2be14e5ba36f/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f416c76696e393939392f706163322f76756c74722f6e6577626272362e6a7067)
 
 
 
@@ -239,4 +287,56 @@ v2ray bbr
 参考：[Cloudflare WARP 一键安装脚本 使用教程 - P3TERX ZONE](https://p3terx.com/archives/cloudflare-warp-configuration-script.html)
 
 至此可以稳定畅游ChatGPT。
+
+
+
+
+
+**常见问题参考解决方法**：
+
+**1、账号无法使用，可能原因一：客户端与服务端的设备系统时间相差过大。**
+
+**a、一般国外的VPS的镜像都是默认的国外时区，使用起来不是很方便。可以把它修改成北京时间，就会方便很多。** **修改中国时区代码如下**：
+
+\cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+**b、利用NTP同步时间协议**
+
+**CentOS系统先安装NTP**：yum install ntp ntpdate -y
+
+> 如果是Ubuntu/Debian系统执行下面2条命令来安装NTP
+
+> apt-get update
+
+> apt-get install ntp ntpdate -y
+
+**安装NTP后，按照顺序依次执行以下3条命令，分别是停止NTP服务、同步NTP时间、启动NTP服务**：
+
+service ntpd stop
+
+ntpdate us.pool.ntp.org
+
+service ntpd start
+
+**执行完成后，VPS上就是相对精确的时间设置了。很多依赖于系统时间的应用程序也就能正常工作了。注意：当vps重启后输入date来检查下时间，如果时间不是最新的，再执行以上3条命令即可。**
+
+> 除了通过NTP来同步时间以外，还可以手动修改vps系统时间，需要先修改中国时区，之后输入时间命令，格式（数字改为和自己电脑时间一致，误差30秒以内）：date -s "2020-2-02 19:14:00"
+
+**2、账号无法使用，可能原因：vps防火墙端口没有放开或者本地电脑防火墙、杀毒软件阻挡代理软件。**
+
+关闭vps防火墙即可开放所有端口，本地电脑防火墙和杀毒软件手动关闭即可。
+
+查看防火墙状态命令：firewall-cmd --state
+
+停止firewall命令：systemctl stop firewalld.service
+
+禁止firewall开机启动命令：systemctl disable firewalld.service
+
+**3、搭建的账号之前能用，突然不能用了，怎么解决？**
+
+**如果ip不能ping通，xshell不能直接连接vps服务器，说明ip被墙了，需要开新服务器换ip。**
+
+**如果ip能ping，xshell能直接连接vps服务器，说明ip没有被墙，多半是端口被封了，优先换端口。**
+
+**如果ip和端口都没问题，可以尝试来更换传输协议，比如Websocket、TCP、mKCP等，测试哪种协议最适合自己的网络环境。**
 
